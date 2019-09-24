@@ -1,0 +1,28 @@
+---
+title: "class_9_24"
+author: "Johnny Kauffman"
+date: "9/24/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(ggplot2)
+library(readxl)
+library(janitor)
+
+enrollment_data_old <- read_xlsx("class_enrollment_summary_by_term_9.17.19.xlsx", col_names = TRUE, range = cell_rows(4:2798)) %>% clean_names()
+enrollment_data_new <- read_xlsx("CURRENT_class_enrollment_summary_by_term_9.24.19.xlsx", col_names = TRUE, range = cell_rows(4:2824)) %>% clean_names()
+
+
+```
+
+```{r}
+
+gov_enrollment <- enrollment_data_old %>% filter(course_department == "Government")  
+
+
+```
+
